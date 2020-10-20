@@ -7,7 +7,6 @@ package:
   version: {{ version|replace("-", "_") }}
 
 source:
-  fn: ash_{{ version }}.tar.gz
   url:
     - {{ cran_mirror }}/src/contrib/ash_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/ash/ash_{{ version }}.tar.gz
@@ -15,8 +14,7 @@ source:
 
 build:
   merge_build_host: True  # [win]
-  number: 1005
-  skip: true  # [win32]
+  number: 1006
   rpaths:
     - lib/R/lib/
     - lib/
@@ -45,10 +43,11 @@ test:
 
 about:
   home: https://CRAN.R-project.org/package=ash
-  license: GPL (>= 2)
+  license: GPL-2.0-or-later
   summary: David Scott's ASH routines ported from S-PLUS to R.
   license_family: GPL3
-  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'
+  license_file:
+    - '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'
 
 extra:
   recipe-maintainers:
